@@ -1,0 +1,159 @@
+/* 
+background: #34495e
+available: #35ac49
+selected: #f58220
+occupied: #737374
+price: #6feaf6
+reset: #d6dbdf
+*/
+@import url("https://fonts.googleapis.com/css?family=Ubuntu&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #34495e;
+    color: white;
+    font-size: 16px;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.wrapper {
+    height: 100vh;
+    display: grid;
+    justify-items: center;
+    grid-template-rows: auto repeat(5, 116px) auto;
+    grid-template-areas:
+        "."
+        "details"
+        "cinema"
+        "cinema"
+        "cinema"
+        "reset"
+        ".";
+}
+
+.movie-details-container {
+    grid-area: details;
+    align-self: end;
+}
+
+.select-container {
+    text-align: center;
+}
+
+select {
+    width: 210px;
+    height: 30px;
+    background-color: white;
+    color: #34495e;
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+    margin-left: 4px;
+    -webkit-appearance: none;
+    text-align-last: center;
+}
+
+#movie:focus {
+    outline: none;
+    font-size: 16px;
+}
+
+.legend-container {
+    height: 40px;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 40px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.legend-container li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.legend-container li span {
+    margin: 3px;
+}
+
+.cinema-container {
+    grid-area: cinema;
+}
+
+.canvas {
+    background-color: white;
+    height: 110px;
+    width: 280px;
+    margin-top: 30px;
+    transform: perspective(800px) rotatex(-35deg);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+}
+
+.seats {
+    display: grid;
+    grid-template-columns: repeat(2, 30px) 50px repeat(3, 30px) 50px 30px;
+    margin: 10px auto 0 auto;
+}
+
+.available-seat {
+    background-color: #35ac49;
+    height: 20px;
+    width: 20px;
+    margin: 5px;
+    justify-self: end;
+}
+
+.available-seat.selected {
+    background-color: #f58220;
+}
+
+.available-seat.occupied {
+    background-color: #737374;
+}
+
+.seats .available-seat:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.seats .available-seat.occupied:hover {
+    cursor: default;
+    transform: scale(1);
+}
+
+.price-reset-container {
+    grid-area: reset;
+}
+
+.price-reset-container p {
+    margin-top: 20px;
+}
+
+.price-reset-container span {
+    color: #6feaf6;
+}
+
+div.reset {
+    width: 70px;
+    line-height: 30px;
+    background-color: white;
+    color: #34495e;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 25px auto 0 auto;
+}
+
+div.reset:hover {
+    background-color: #d6dbdf;
+    cursor: pointer;
+    transform: scale(1.2);
+}
